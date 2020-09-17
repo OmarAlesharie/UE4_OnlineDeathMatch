@@ -4,6 +4,7 @@
     <e p="C:\Users\omar_\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
     <e p="C:\Users\omar_\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_DeathMatch.-2108538865.00" t="ExcludeRecursive" />
     <e p="D:\GitHub\UE4_OnlineDeathMatch" t="IncludeFlat">
+      <e p=".gitignore" t="Include" />
       <e p="Config" t="Include">
         <e p="DefaultEditor.ini" t="Include" />
         <e p="DefaultEditorPerProjectUserSettings.ini" t="Include" />
@@ -20,7 +21,9 @@
         <e p="DeathMatch.vcxproj" t="IncludeRecursive" />
         <e p="UE4.vcxproj" t="IncludeRecursive" />
       </e>
+      <e p="LICENSE" t="Include" />
       <e p="packages" t="ExcludeRecursive" />
+      <e p="README.md" t="Include" />
       <e p="Source" t="Include">
         <e p="DeathMatch" t="Include">
           <e p="DeathMatch.Build.cs" t="Include" />
@@ -30,6 +33,8 @@
           <e p="DeathMatchCharacter.h" t="Include" />
           <e p="DeathMatchGameMode.cpp" t="Include" />
           <e p="DeathMatchGameMode.h" t="Include" />
+          <e p="Weapon.cpp" t="Include" />
+          <e p="Weapon.h" t="Include" />
         </e>
         <e p="DeathMatch.Target.cs" t="Include" />
         <e p="DeathMatchEditor.Target.cs" t="Include" />
