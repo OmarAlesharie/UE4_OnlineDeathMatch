@@ -48,7 +48,6 @@ ADeathMatchCharacter::ADeathMatchCharacter()
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
 
-	IsCrouching = false;
 	GetMovementComponent()->GetNavAgentPropertiesRef().bCanCrouch = true;
 	
 	WeaponAttachSocketName = "WeaponSocket";
@@ -143,13 +142,11 @@ void ADeathMatchCharacter::TouchStopped(ETouchIndex::Type FingerIndex, FVector L
 void ADeathMatchCharacter::BeginCrouch()
 {
 	Crouch();
-	IsCrouching = true;
 }
 
 void ADeathMatchCharacter::EndCrouch()
 {
 	UnCrouch();
-	IsCrouching = false;
 }
 
 void ADeathMatchCharacter::TurnAtRate(float Rate)

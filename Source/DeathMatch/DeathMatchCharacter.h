@@ -63,9 +63,6 @@ protected:
 	void BeginCrouch();
 	void EndCrouch();
 
-	UPROPERTY(BlueprintReadOnly, Category="Player")
-	bool IsCrouching;
-
 	UPROPERTY(Replicated)
 	AWeapon* CurrentWeapon;
 
