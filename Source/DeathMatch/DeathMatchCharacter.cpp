@@ -82,6 +82,9 @@ void ADeathMatchCharacter::SetupPlayerInputComponent(class UInputComponent* Play
 	PlayerInputComponent->BindTouch(IE_Pressed, this, &ADeathMatchCharacter::TouchStarted);
 	PlayerInputComponent->BindTouch(IE_Released, this, &ADeathMatchCharacter::TouchStopped);
 
+	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &ADeathMatchCharacter::StartFire);
+	PlayerInputComponent->BindAction("Fire", IE_Released, this, &ADeathMatchCharacter::StopFire);
+
 	// VR headset functionality
 	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &ADeathMatchCharacter::OnResetVR);
 }
@@ -102,6 +105,22 @@ void ADeathMatchCharacter::BeginPlay()
 			CurrentWeapon->SetOwner(this);
 			CurrentWeapon->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale, WeaponAttachSocketName);
 		}
+	}
+}
+
+void ADeathMatchCharacter::StartFire()
+{
+	if (CurrentWeapon)
+	{
+		CurrentWeapon->StartFire();
+	}
+}
+
+void ADeathMatchCharacter::StopFire()
+{
+	if (CurrentWeapon)
+	{
+		CurrentWeapon->StopFire();
 	}
 }
 

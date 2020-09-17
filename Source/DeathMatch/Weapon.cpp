@@ -46,7 +46,7 @@ void AWeapon::Fire()
 
 void AWeapon::StartFire()
 {
-	
+	GEngine->AddOnScreenDebugMessage(-1,1, FColor::Red, TEXT("Fire"));
 }
 
 void AWeapon::StopFire()
