@@ -6,6 +6,8 @@
 #include "GameFramework/Character.h"
 #include "DeathMatchCharacter.generated.h"
 
+class AWeapon;
+
 UCLASS(config=Game)
 class ADeathMatchCharacter : public ACharacter
 {
@@ -64,10 +66,21 @@ protected:
 	UPROPERTY(BlueprintReadOnly, Category="Player")
 	bool IsCrouching;
 
+	UPROPERTY(Replicated)
+	AWeapon* CurrentWeapon;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Player")
+	TSubclassOf<AWeapon> StarterWeaponClass;
+
+	UPROPERTY(VisibleDefaultsOnly, Category = "Player")
+	FName WeaponAttachSocketName;
+	
 protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	// End of APawn interface
+
+	virtual void BeginPlay() override;
 
 public:
 	/** Returns CameraBoom subobject **/

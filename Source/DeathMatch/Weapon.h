@@ -6,6 +6,9 @@
 #include "GameFramework/Actor.h"
 #include "Weapon.generated.h"
 
+class USkeletalMeshComponent;
+class UDamageType;
+
 UCLASS()
 class DEATHMATCH_API AWeapon : public AActor
 {
@@ -19,8 +22,42 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	USkeletalMeshComponent* MeshComp;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Weapon")
+	TSubclassOf<UDamageType> DamageType;
+
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = "Weapon")
+	FName MuzzleSocketName;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Weapon")
+	float BaseDamage;
+
+	void Fire();
+
+	UFUNCTION(Server, Reliable, WithValidation)
+    void ServerFire();
+
+	FTimerHandle TimerHandle_TimeBetweenShots;
+
+	float LastFireTime;
+
+	/* RPM - Bullets per minute fired by weapon */
+	UPROPERTY(EditDefaultsOnly, Category = "Weapon")
+	float RateOfFire;
+
+	/* Bullet Spread in Degrees */
+	UPROPERTY(EditDefaultsOnly, Category = "Weapon", meta = (ClampMin=0.0f))
+	float BulletSpread;
+	
+	// Derived from RateOfFire
+	float TimeBetweenShots;
+
 public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+
+	void StartFire();
+
+	void StopFire();
 
 };

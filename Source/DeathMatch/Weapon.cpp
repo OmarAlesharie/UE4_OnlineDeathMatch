@@ -2,12 +2,31 @@
 
 
 #include "Weapon.h"
+#include "UObject/ConstructorHelpers.h"
 
 // Sets default values
 AWeapon::AWeapon()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+	MeshComp = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("MeshComp"));
+	RootComponent = MeshComp;
+
+	static ConstructorHelpers::FObjectFinder<USkeletalMesh> WeaponMesh(TEXT("/Game/SciFiWeapDark/Weapons/Darkness_AssaultRifle.Darkness_AssaultRifle"));
+
+	if (WeaponMesh.Succeeded())
+	{
+		MeshComp->SetSkeletalMesh(WeaponMesh.Object);
+	}
+	
+	MuzzleSocketName = "MuzzleSocket";
+
+	BaseDamage = 20.0f;
+	BulletSpread = 2.0f;
+	RateOfFire = 600;
+
+	SetReplicates(true);
+
+	NetUpdateFrequency = 66.0f;
+	MinNetUpdateFrequency = 33.0f;
 
 }
 
@@ -15,13 +34,33 @@ AWeapon::AWeapon()
 void AWeapon::BeginPlay()
 {
 	Super::BeginPlay();
+
+	TimeBetweenShots = 60 / RateOfFire;
 	
 }
 
-// Called every frame
-void AWeapon::Tick(float DeltaTime)
+void AWeapon::Fire()
 {
-	Super::Tick(DeltaTime);
+	
+}
 
+void AWeapon::StartFire()
+{
+	
+}
+
+void AWeapon::StopFire()
+{
+	
+}
+
+void AWeapon::ServerFire_Implementation()
+{
+	
+}
+
+bool AWeapon::ServerFire_Validate()
+{
+	return true;
 }
 
