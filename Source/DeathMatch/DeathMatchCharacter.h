@@ -58,6 +58,12 @@ protected:
 	/** Handler for when a touch input stops. */
 	void TouchStopped(ETouchIndex::Type FingerIndex, FVector Location);
 
+	void BeginCrouch();
+	void EndCrouch();
+
+	UPROPERTY(BlueprintReadOnly, Category="Player")
+	bool IsCrouching;
+
 protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
