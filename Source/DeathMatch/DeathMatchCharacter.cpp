@@ -230,4 +230,5 @@ void ADeathMatchCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>&
 
 	DOREPLIFETIME(ADeathMatchCharacter, CurrentWeapon);
 	DOREPLIFETIME(ADeathMatchCharacter, OffsetAxis);
+	DOREPLIFETIME(ADeathMatchCharacter, bDied);
 }
