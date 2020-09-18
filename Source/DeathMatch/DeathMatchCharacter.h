@@ -91,8 +91,6 @@ protected:
 	
     void StartFire();
 
-    void StopFire();
-
 public:
 	/** Returns CameraBoom subobject **/
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }

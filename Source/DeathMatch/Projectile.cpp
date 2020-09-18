@@ -33,7 +33,7 @@ AProjectile::AProjectile()
 	{
 		StaticMesh->SetStaticMesh(DefaultMesh.Object);
 		StaticMesh->SetRelativeLocation(FVector(0.0f, 0.0f, 0.0f));
-		StaticMesh->SetRelativeScale3D(FVector(1, 1, 1));
+		StaticMesh->SetRelativeScale3D(FVector(2, 2, 2));
 	}
 
 	static ConstructorHelpers::FObjectFinder<UParticleSystem> DefaultExplosionEffect(TEXT("/Game/StarterContent/Particles/LaserSparks.LaserSparks"));
@@ -52,11 +52,15 @@ AProjectile::AProjectile()
 
 	DamageType = UDamageType::StaticClass();
 	Damage = 10.0f;
+
+	
 }
 
 void AProjectile::BeginPlay()
 {
 	Super::BeginPlay();
+
+	SetLifeSpan(2);
 	
 	if (GetLocalRole() == ROLE_Authority)
 	{
@@ -75,7 +79,7 @@ void AProjectile::OnProjectileImpact(UPrimitiveComponent* HitComponent, AActor* 
 {
 	if ( OtherActor )
 	{
-		UGameplayStatics::ApplyPointDamage(OtherActor, Damage, NormalImpulse, Hit, GetInstigator()->Controller, this, DamageType);
+		UGameplayStatics::ApplyPointDamage(OtherActor, Damage, NormalImpulse, Hit, GetInstigator()->GetController(), this, DamageType);
 	}
 
 	Destroy();

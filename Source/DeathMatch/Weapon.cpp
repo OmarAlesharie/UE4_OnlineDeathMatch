@@ -2,6 +2,8 @@
 
 
 #include "Weapon.h"
+
+#include "Projectile.h"
 #include "UObject/ConstructorHelpers.h"
 
 // Sets default values
@@ -19,13 +21,16 @@ AWeapon::AWeapon()
 	
 	MuzzleSocketName = "MuzzleSocket";
 
-	BulletSpread = 2.0f;
-	RateOfFire = 600;
-
 	SetReplicates(true);
 
 	NetUpdateFrequency = 66.0f;
 	MinNetUpdateFrequency = 33.0f;
+
+	//Initialize projectile class
+	ProjectileClass = AProjectile::StaticClass();
+	//Initialize fire rate
+	FireRate = 0.25f;
+	bIsFiringWeapon = false;
 
 }
 
@@ -33,32 +38,38 @@ AWeapon::AWeapon()
 void AWeapon::BeginPlay()
 {
 	Super::BeginPlay();
-
-	TimeBetweenShots = 60 / RateOfFire;
-	
-}
-
-void AWeapon::Fire()
-{
 	
 }
 
 void AWeapon::StartFire()
 {
-	GEngine->AddOnScreenDebugMessage(-1,1, FColor::Red, TEXT("Fire"));
+	if (!bIsFiringWeapon)
+	{
+		bIsFiringWeapon = true;
+		UWorld* World = GetWorld();
+		World->GetTimerManager().SetTimer(FiringTimer, this, &AWeapon::StopFire, FireRate, false);
+		HandleFire();
+	}
 }
 
 void AWeapon::StopFire()
 {
-	
+	bIsFiringWeapon = false;
 }
 
-void AWeapon::ServerFire_Implementation()
+void AWeapon::HandleFire_Implementation()
 {
-	
+	FVector MuzzleLocation = MeshComp->GetSocketLocation(MuzzleSocketName);
+	FRotator MuzzleRotation = MeshComp->GetSocketRotation(MuzzleSocketName);
+
+	FActorSpawnParameters spawnParameters;
+	spawnParameters.Instigator = this->GetInstigator();
+	spawnParameters.Owner = this->GetOwner();
+
+	AProjectile* spawnedProjectile = GetWorld()->SpawnActor<AProjectile>(MuzzleLocation, MuzzleRotation, spawnParameters);
 }
 
-bool AWeapon::ServerFire_Validate()
+bool AWeapon::HandleFire_Validate()
 {
 	return true;
 }

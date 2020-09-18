@@ -24,9 +24,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df50e52b-047a-41fd-a231-756e1318e8ca" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DeathMatch/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DeathMatch/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DeathMatch/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DeathMatch/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/SciFiWeapDark/Weapons/Darkness_AssaultRifle.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/SciFiWeapDark/Weapons/Darkness_AssaultRifle.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/SciFiWeapDark/Weapons/Darkness_AssaultRifle_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/SciFiWeapDark/Weapons/Darkness_AssaultRifle_Skeleton.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ThirdPersonCPP/Blueprints/ThirdPersonCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonCPP/Blueprints/ThirdPersonCharacter.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/ThirdPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/ThirdPersonExampleMap.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DeathMatch/Projectile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/Projectile.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DeathMatch/Weapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/Weapon.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DeathMatch/Weapon.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/Weapon.h" afterDir="false" />
     </list>
@@ -41,12 +46,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.cpp" />
+        <option value="$PROJECT_DIR$/Source/DeathMatch/Projectile.h" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.h" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/Weapon.h" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/Weapon.cpp" />
-        <option value="$PROJECT_DIR$/Source/DeathMatch/Projectile.h" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/Projectile.cpp" />
+        <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.cpp" />
       </list>
     </option>
   </component>
@@ -391,7 +396,7 @@
       <workItem from="1600342250750" duration="69000" />
       <workItem from="1600349185145" duration="14029000" />
       <workItem from="1600369061747" duration="1279000" />
-      <workItem from="1600425182193" duration="11606000" />
+      <workItem from="1600425182193" duration="18416000" />
     </task>
     <servers />
   </component>

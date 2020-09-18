@@ -45,11 +45,10 @@ ADeathMatchCharacter::ADeathMatchCharacter()
 	FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
 	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
+	FollowCamera->SetRelativeLocation(FVector(0.0f,80.0f,90.0f));
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
-
-	GetMovementComponent()->GetNavAgentPropertiesRef().bCanCrouch = true;
 	
 	WeaponAttachSocketName = "WeaponSocket";
 }
@@ -83,7 +82,6 @@ void ADeathMatchCharacter::SetupPlayerInputComponent(class UInputComponent* Play
 	PlayerInputComponent->BindTouch(IE_Released, this, &ADeathMatchCharacter::TouchStopped);
 
 	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &ADeathMatchCharacter::StartFire);
-	PlayerInputComponent->BindAction("Fire", IE_Released, this, &ADeathMatchCharacter::StopFire);
 
 	// VR headset functionality
 	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &ADeathMatchCharacter::OnResetVR);
@@ -93,11 +91,14 @@ void ADeathMatchCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 
+	GetMovementComponent()->GetNavAgentPropertiesRef().bCanCrouch = true;
+	
 	if (HasAuthority())
 	{
 		// Spawn a default weapon
 		FActorSpawnParameters SpawnParams;
 		SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+		SpawnParams.Instigator = this;
 
 		CurrentWeapon = GetWorld()->SpawnActor<AWeapon>(StarterWeaponClass, FVector::ZeroVector, FRotator::ZeroRotator, SpawnParams);
 		if (CurrentWeapon)
@@ -115,17 +116,6 @@ void ADeathMatchCharacter::StartFire()
 		CurrentWeapon->StartFire();
 	}
 }
-
-void ADeathMatchCharacter::StopFire()
-{
-	if (CurrentWeapon)
-	{
-		CurrentWeapon->StopFire();
-	}
-}
-
-
-
 
 void ADeathMatchCharacter::OnResetVR()
 {

@@ -8,6 +8,7 @@
 
 class USkeletalMeshComponent;
 class UDamageType;
+class AProjectile;
 
 UCLASS()
 class DEATHMATCH_API AWeapon : public AActor
@@ -28,30 +29,30 @@ protected:
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = "Weapon")
 	FName MuzzleSocketName;
 
-	void Fire();
+	UPROPERTY(EditDefaultsOnly, Category="Gameplay|Projectile")
+	TSubclassOf<AProjectile> ProjectileClass;
 
+	/** Delay between shots in seconds. Used to control fire rate for our test projectile, but also to prevent an overflow of server functions from binding SpawnProjectile directly to input.*/
+	UPROPERTY(EditDefaultsOnly, Category="Gameplay")
+	float FireRate;
+
+	/** If true, we are in the process of firing projectiles. */
+	bool bIsFiringWeapon;
+
+	/** Server function for spawning projectiles.*/
 	UFUNCTION(Server, Reliable, WithValidation)
-    void ServerFire();
+    void HandleFire();
 
-	FTimerHandle TimerHandle_TimeBetweenShots;
-
-	float LastFireTime;
-
-	/* RPM - Bullets per minute fired by weapon */
-	UPROPERTY(EditDefaultsOnly, Category = "Weapon")
-	float RateOfFire;
-
-	/* Bullet Spread in Degrees */
-	UPROPERTY(EditDefaultsOnly, Category = "Weapon", meta = (ClampMin=0.0f))
-	float BulletSpread;
-	
-	// Derived from RateOfFire
-	float TimeBetweenShots;
+	/** A timer handle used for providing the fire rate delay in-between spawns.*/
+	FTimerHandle FiringTimer;
 
 public:	
 
-	void StartFire();
+	/** Function for beginning weapon fire.*/
+	UFUNCTION(BlueprintCallable, Category="Gameplay")
+    void StartFire();
 
-	void StopFire();
-
+	/** Function for ending weapon fire. Once this is called, the player can use StartFire again.*/
+	UFUNCTION(BlueprintCallable, Category = "Gameplay")
+    void StopFire();  
 };
