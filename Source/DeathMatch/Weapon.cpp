@@ -19,7 +19,6 @@ AWeapon::AWeapon()
 	
 	MuzzleSocketName = "MuzzleSocket";
 
-	BaseDamage = 20.0f;
 	BulletSpread = 2.0f;
 	RateOfFire = 600;
 
