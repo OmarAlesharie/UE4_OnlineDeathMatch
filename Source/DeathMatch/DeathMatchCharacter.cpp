@@ -219,6 +219,7 @@ void ADeathMatchCharacter::OnHealthChanged(UHealthComponent* InHealthComp, float
 		GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 
 		DetachFromControllerPendingDestroy();
+		CurrentWeapon->SetLifeSpan(12);
 
 		SetLifeSpan(10.0);
 	}
