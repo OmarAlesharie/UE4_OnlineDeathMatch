@@ -49,9 +49,9 @@
         <option value="$PROJECT_DIR$/Source/DeathMatch/Projectile.h" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.h" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/Weapon.h" />
-        <option value="$PROJECT_DIR$/Source/DeathMatch/Weapon.cpp" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/Projectile.cpp" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.cpp" />
+        <option value="$PROJECT_DIR$/Source/DeathMatch/Weapon.cpp" />
       </list>
     </option>
   </component>
@@ -396,7 +396,7 @@
       <workItem from="1600342250750" duration="69000" />
       <workItem from="1600349185145" duration="14029000" />
       <workItem from="1600369061747" duration="1279000" />
-      <workItem from="1600425182193" duration="18416000" />
+      <workItem from="1600425182193" duration="18797000" />
     </task>
     <servers />
   </component>
