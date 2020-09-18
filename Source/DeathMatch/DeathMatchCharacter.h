@@ -7,6 +7,7 @@
 #include "DeathMatchCharacter.generated.h"
 
 class AWeapon;
+class UHealthComponent;
 
 UCLASS(config=Game)
 class ADeathMatchCharacter : public ACharacter
@@ -20,9 +21,18 @@ class ADeathMatchCharacter : public ACharacter
 	/** Follow camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* FollowCamera;
+
+	
+
+	UFUNCTION()
+    void OnHealthChanged(UHealthComponent* InHealthComp,float Health, float HealthDelta, const class UDamageType* DamageType,class AController* InstigatedBy, AActor* DamageCauser);
+	
 public:
 	ADeathMatchCharacter();
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Conponents")
+	UHealthComponent* HealthComp;
+	
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseTurnRate;
@@ -80,6 +90,10 @@ protected:
 
 	UPROPERTY(VisibleDefaultsOnly, Category = "Player")
 	FName WeaponAttachSocketName;
+
+	// Pawn died previously
+	UPROPERTY(Replicated, BlueprintReadOnly, Category="Player")
+	bool bDied;
 	
 protected:
 	// APawn interface
@@ -88,7 +102,6 @@ protected:
 
 	virtual void BeginPlay() override;
 
-	
     void StartFire();
 
 public:

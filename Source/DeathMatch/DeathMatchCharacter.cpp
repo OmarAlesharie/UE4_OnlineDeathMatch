@@ -11,9 +11,11 @@
 #include "Weapon.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Net/UnrealNetwork.h"
+#include "HealthComponent.h"
 
 //////////////////////////////////////////////////////////////////////////
 // ADeathMatchCharacter
+
 
 ADeathMatchCharacter::ADeathMatchCharacter()
 {
@@ -51,6 +53,8 @@ ADeathMatchCharacter::ADeathMatchCharacter()
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
 	
 	WeaponAttachSocketName = "WeaponSocket";
+
+	HealthComp = CreateDefaultSubobject<UHealthComponent>(TEXT("HealthComp"));
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -92,6 +96,8 @@ void ADeathMatchCharacter::BeginPlay()
 	Super::BeginPlay();
 
 	GetMovementComponent()->GetNavAgentPropertiesRef().bCanCrouch = true;
+
+	HealthComp->OnHealthChanged.AddDynamic(this, &ADeathMatchCharacter::OnHealthChanged);
 	
 	if (HasAuthority())
 	{
@@ -198,6 +204,23 @@ void ADeathMatchCharacter::MoveRight(float Value)
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
 		// add movement in that direction
 		AddMovementInput(Direction, Value);
+	}
+}
+
+void ADeathMatchCharacter::OnHealthChanged(UHealthComponent* InHealthComp, float Health, float HealthDelta,
+    const UDamageType* DamageType, AController* InstigatedBy, AActor* DamageCauser)
+{
+	if (Health <= 0.0f && !bDied)
+	{
+		// Die!
+		bDied = true;
+		
+		GetMovementComponent()->StopMovementImmediately();
+		GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+
+		DetachFromControllerPendingDestroy();
+
+		SetLifeSpan(10.0);
 	}
 }
 

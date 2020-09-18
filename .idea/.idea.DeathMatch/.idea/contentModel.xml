@@ -33,6 +33,8 @@
           <e p="DeathMatchCharacter.h" t="Include" />
           <e p="DeathMatchGameMode.cpp" t="Include" />
           <e p="DeathMatchGameMode.h" t="Include" />
+          <e p="HealthComponent.cpp" t="Include" />
+          <e p="HealthComponent.h" t="Include" />
           <e p="Projectile.cpp" t="Include" />
           <e p="Projectile.h" t="Include" />
           <e p="Weapon.cpp" t="Include" />

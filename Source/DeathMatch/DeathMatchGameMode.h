@@ -6,6 +6,8 @@
 #include "GameFramework/GameModeBase.h"
 #include "DeathMatchGameMode.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FOnActorKilled, AActor*, VictimActor, AActor*, KillerActor, AController*, KillerController);
+
 UCLASS(minimalapi)
 class ADeathMatchGameMode : public AGameModeBase
 {
@@ -13,6 +15,9 @@ class ADeathMatchGameMode : public AGameModeBase
 
 public:
 	ADeathMatchGameMode();
+
+	UPROPERTY(BlueprintAssignable, Category = "GameMode")
+	FOnActorKilled OnActorKilled;
 };
 
 
