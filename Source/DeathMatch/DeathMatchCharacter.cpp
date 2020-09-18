@@ -9,6 +9,7 @@
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Weapon.h"
+#include "Kismet/KismetMathLibrary.h"
 #include "Net/UnrealNetwork.h"
 
 //////////////////////////////////////////////////////////////////////////
@@ -124,6 +125,8 @@ void ADeathMatchCharacter::StopFire()
 }
 
 
+
+
 void ADeathMatchCharacter::OnResetVR()
 {
 	UHeadMountedDisplayFunctionLibrary::ResetOrientationAndPosition();
@@ -147,6 +150,24 @@ void ADeathMatchCharacter::BeginCrouch()
 void ADeathMatchCharacter::EndCrouch()
 {
 	UnCrouch();
+}
+
+void ADeathMatchCharacter::ServerSetOffsetAxis_Implementation()
+{
+	if (GetLocalRole() == ROLE_Authority)
+	{
+		OffsetAxis = UKismetMathLibrary::NormalizedDeltaRotator(GetControlRotation(),GetActorRotation());
+	}
+}
+
+FRotator ADeathMatchCharacter::GetOffsetAxis()
+{
+	return OffsetAxis;
+}
+
+bool ADeathMatchCharacter::ServerSetOffsetAxis_Validate()
+{
+	return true;
 }
 
 void ADeathMatchCharacter::TurnAtRate(float Rate)
@@ -195,4 +216,5 @@ void ADeathMatchCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>&
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 
 	DOREPLIFETIME(ADeathMatchCharacter, CurrentWeapon);
+	DOREPLIFETIME(ADeathMatchCharacter, OffsetAxis);
 }

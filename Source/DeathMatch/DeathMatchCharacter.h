@@ -31,6 +31,9 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
 
+	UFUNCTION(BlueprintCallable)
+	FRotator GetOffsetAxis();
+
 protected:
 
 	/** Resets HMD orientation in VR. */
@@ -62,6 +65,12 @@ protected:
 
 	void BeginCrouch();
 	void EndCrouch();
+
+	UPROPERTY(Replicated)
+	FRotator OffsetAxis;
+
+	UFUNCTION(Reliable, Server, WithValidation, BlueprintCallable, Category="ServerFunctions")
+	void ServerSetOffsetAxis();
 
 	UPROPERTY(Replicated)
 	AWeapon* CurrentWeapon;

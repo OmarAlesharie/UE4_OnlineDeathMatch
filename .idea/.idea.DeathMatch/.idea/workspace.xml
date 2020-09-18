@@ -26,8 +26,6 @@
     <list default="true" id="df50e52b-047a-41fd-a231-756e1318e8ca" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DeathMatch/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DeathMatch/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Mannequin/Animations/RetargetAnimations/UE4ASP_HeroTPP_AnimBlueprint.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Mannequin/Animations/RetargetAnimations/UE4ASP_HeroTPP_AnimBlueprint.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ThirdPersonCPP/Blueprints/ThirdPersonCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonCPP/Blueprints/ThirdPersonCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/ThirdPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/ThirdPersonExampleMap.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.h" afterDir="false" />
     </list>
@@ -388,7 +386,9 @@
       <option name="presentableId" value="Default" />
       <updated>1600342160438</updated>
       <workItem from="1600342250750" duration="69000" />
-      <workItem from="1600349185145" duration="13693000" />
+      <workItem from="1600349185145" duration="14029000" />
+      <workItem from="1600369061747" duration="1279000" />
+      <workItem from="1600425182193" duration="3928000" />
     </task>
     <servers />
   </component>
