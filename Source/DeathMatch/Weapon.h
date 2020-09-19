@@ -9,6 +9,7 @@
 class USkeletalMeshComponent;
 class UDamageType;
 class AProjectile;
+class USoundBase;
 
 UCLASS()
 class DEATHMATCH_API AWeapon : public AActor
@@ -45,6 +46,12 @@ protected:
 
 	/** A timer handle used for providing the fire rate delay in-between spawns.*/
 	FTimerHandle FiringTimer;
+
+	UPROPERTY()
+	USoundBase* FireSound;
+
+	UFUNCTION(NetMulticast, Reliable)
+	void PlayFireSound_Server();
 
 public:	
 

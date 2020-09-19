@@ -6,6 +6,7 @@
 
 #include "DrawDebugHelpers.h"
 #include "Projectile.h"
+#include "Kismet/GameplayStatics.h"
 #include "UObject/ConstructorHelpers.h"
 
 // Sets default values
@@ -19,6 +20,15 @@ AWeapon::AWeapon()
 	if (WeaponMesh.Succeeded())
 	{
 		MeshComp->SetSkeletalMesh(WeaponMesh.Object);
+	}
+
+	FireSound = CreateDefaultSubobject<USoundBase>(TEXT("MeshComp"));
+
+	static ConstructorHelpers::FObjectFinder<USoundBase> LaserSound(TEXT("/Game/Sounds/Laser.Laser"));
+	
+	if (LaserSound.Succeeded())
+	{
+		FireSound = LaserSound.Object;
 	}
 	
 	MuzzleSocketName = "MuzzleSocket";
@@ -41,6 +51,11 @@ void AWeapon::BeginPlay()
 {
 	Super::BeginPlay();
 	
+}
+
+void AWeapon::PlayFireSound_Server_Implementation()
+{
+	UGameplayStatics::SpawnSoundAtLocation(GetWorld(),FireSound,GetActorLocation());
 }
 
 void AWeapon::StartFire()
@@ -93,9 +108,9 @@ void AWeapon::HandleFire_Implementation()
 		spawnParameters.Owner = this->GetOwner();
 
 		AProjectile* spawnedProjectile = GetWorld()->SpawnActor<AProjectile>(MuzzleLocation, ShotDirection.Rotation(), spawnParameters);
+
+		PlayFireSound_Server();
 	}
-	
-	
 }
 
 bool AWeapon::HandleFire_Validate()
