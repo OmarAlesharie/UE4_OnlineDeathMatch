@@ -90,6 +90,12 @@ protected:
 	void BeginCrouch();
 	void EndCrouch();
 
+	UFUNCTION(BlueprintImplementableEvent, Category="WeaponZoom")
+    void ZoomStart();
+
+	UFUNCTION(BlueprintImplementableEvent, Category="WeaponZoom")
+    void ZoomEnd();
+
 	UPROPERTY(Replicated)
 	FRotator OffsetAxis;
 

@@ -153,11 +153,13 @@ FVector ADeathMatchCharacter::GetPawnViewLocation() const
 void ADeathMatchCharacter::BeginZoom()
 {
 	bWantsToZoom = true;
+	ZoomStart();
 }
 
 void ADeathMatchCharacter::EndZoom()
 {
 	bWantsToZoom = false;
+	ZoomEnd();
 }
 
 void ADeathMatchCharacter::OnResetVR()
