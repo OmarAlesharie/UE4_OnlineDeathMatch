@@ -25,10 +25,9 @@
   <component name="ChangeListManager">
     <list default="true" id="df50e52b-047a-41fd-a231-756e1318e8ca" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DeathMatch/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DeathMatch/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DeathMatch/Projectile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/Projectile.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DeathMatch/Projectile.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/Projectile.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DeathMatch/Weapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/Weapon.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DeathMatch/Weapon.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/Weapon.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ThirdPersonCPP/Blueprints/ThirdPersonCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonCPP/Blueprints/ThirdPersonCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/UI/WBP_PlayerAimingUI.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/WBP_PlayerAimingUI.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,12 +46,12 @@
         <option value="$PROJECT_DIR$/Source/DeathMatch/HealthComponent.h" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/HealthComponent.cpp" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameMode.h" />
-        <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.cpp" />
-        <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.h" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/Weapon.h" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/Weapon.cpp" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/Projectile.h" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/Projectile.cpp" />
+        <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.h" />
+        <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.cpp" />
       </list>
     </option>
   </component>
@@ -400,7 +399,8 @@
       <workItem from="1600425182193" duration="24624000" />
       <workItem from="1600515008766" duration="662000" />
       <workItem from="1600517673187" duration="9203000" />
-      <workItem from="1600536788377" duration="9221000" />
+      <workItem from="1600536788377" duration="9460000" />
+      <workItem from="1600553254526" duration="2718000" />
     </task>
     <servers />
   </component>

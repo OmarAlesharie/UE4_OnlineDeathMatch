@@ -22,8 +22,6 @@ class ADeathMatchCharacter : public ACharacter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* FollowCamera;
 
-	
-
 	UFUNCTION()
     void OnHealthChanged(UHealthComponent* InHealthComp,float Health, float HealthDelta, const class UDamageType* DamageType,class AController* InstigatedBy, AActor* DamageCauser);
 	
