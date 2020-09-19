@@ -9,6 +9,7 @@
 #include "UObject/ConstructorHelpers.h"
 #include "Particles/ParticleSystem.h"
 #include "GameFramework/DamageType.h"
+#include "Sound/SoundCue.h"
 
 // Sets default values
 AProjectile::AProjectile()
@@ -21,9 +22,7 @@ AProjectile::AProjectile()
 	BoxComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("RootComponent"));
 	BoxComponent->SetBoxExtent(FVector(8,1,1));
 	BoxComponent->SetCollisionProfileName(TEXT("BlockAllDynamic"));
-	RootComponent = BoxComponent;
-
-	
+	RootComponent = BoxComponent;	
 
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> DefaultMesh(TEXT("/Game/CustomMeshes/Lasser.Lasser"));
 	StaticMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
@@ -42,6 +41,15 @@ AProjectile::AProjectile()
 		ExplosionEffect = DefaultExplosionEffect.Object;
 	}
 
+	LaserHitSound = CreateDefaultSubobject<USoundCue>(TEXT("MeshComp"));
+
+	static ConstructorHelpers::FObjectFinder<USoundCue> LaserSound(TEXT("/Game/Sounds/LaserHit_Cue.LaserHit_Cue"));
+	
+	if (LaserSound.Succeeded())
+	{
+		LaserHitSound = LaserSound.Object;
+	}
+	
 	//Definition for the Projectile Movement Component.
 	ProjectileMovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovement"));
 	ProjectileMovementComponent->SetUpdatedComponent(BoxComponent);
@@ -52,15 +60,13 @@ AProjectile::AProjectile()
 
 	DamageType = UDamageType::StaticClass();
 	Damage = 10.0f;
-
-	
 }
 
 void AProjectile::BeginPlay()
 {
 	Super::BeginPlay();
 
-	SetLifeSpan(2);
+	SetLifeSpan(7);
 	
 	if (GetLocalRole() == ROLE_Authority)
 	{
@@ -70,8 +76,16 @@ void AProjectile::BeginPlay()
 
 void AProjectile::Destroyed()
 {
+	if (LaserHitSound)
+	{
+		UGameplayStatics::SpawnSoundAtLocation(GetWorld(),LaserHitSound,GetActorLocation());
+	}
+
 	FVector spawnLocation = GetActorLocation();
-	UGameplayStatics::SpawnEmitterAtLocation(this, ExplosionEffect, spawnLocation, FRotator::ZeroRotator, true, EPSCPoolMethod::AutoRelease);
+	if (ExplosionEffect)
+	{
+		UGameplayStatics::SpawnEmitterAtLocation(this, ExplosionEffect, spawnLocation, FRotator::ZeroRotator, true, EPSCPoolMethod::AutoRelease);
+	}
 }
 
 void AProjectile::OnProjectileImpact(UPrimitiveComponent* HitComponent, AActor* OtherActor,

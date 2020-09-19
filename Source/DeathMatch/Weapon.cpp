@@ -7,6 +7,7 @@
 #include "DrawDebugHelpers.h"
 #include "Projectile.h"
 #include "Kismet/GameplayStatics.h"
+#include "Sound/SoundCue.h"
 #include "UObject/ConstructorHelpers.h"
 
 // Sets default values
@@ -22,9 +23,9 @@ AWeapon::AWeapon()
 		MeshComp->SetSkeletalMesh(WeaponMesh.Object);
 	}
 
-	FireSound = CreateDefaultSubobject<USoundBase>(TEXT("MeshComp"));
+	FireSound = CreateDefaultSubobject<USoundCue>(TEXT("FireSound"));
 
-	static ConstructorHelpers::FObjectFinder<USoundBase> LaserSound(TEXT("/Game/Sounds/Laser.Laser"));
+	static ConstructorHelpers::FObjectFinder<USoundCue> LaserSound(TEXT("/Game/Sounds/Laser_Cue.Laser_Cue"));
 	
 	if (LaserSound.Succeeded())
 	{

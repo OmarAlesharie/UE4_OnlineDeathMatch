@@ -9,7 +9,7 @@
 class USkeletalMeshComponent;
 class UDamageType;
 class AProjectile;
-class USoundBase;
+class USoundCue;
 
 UCLASS()
 class DEATHMATCH_API AWeapon : public AActor
@@ -48,7 +48,7 @@ protected:
 	FTimerHandle FiringTimer;
 
 	UPROPERTY()
-	USoundBase* FireSound;
+	USoundCue* FireSound;
 
 	UFUNCTION(NetMulticast, Reliable)
 	void PlayFireSound_Server();

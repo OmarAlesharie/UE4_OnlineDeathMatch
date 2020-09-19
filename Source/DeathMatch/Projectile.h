@@ -12,6 +12,7 @@ class UBoxComponent;
 class UStaticMeshComponent;
 class UProjectileMovementComponent;
 class UParticleSystem;
+class USoundCue;
 
 UCLASS()
 class DEATHMATCH_API AProjectile : public AActor
@@ -46,6 +47,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Damage")
 	float Damage;
 
+	UPROPERTY()
+	USoundCue* LaserHitSound;
+	
 protected:
 	virtual void BeginPlay() override;
 	virtual void Destroyed() override;
