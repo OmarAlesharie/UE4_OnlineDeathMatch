@@ -40,7 +40,7 @@ ADeathMatchCharacter::ADeathMatchCharacter()
 	// Create a camera boom (pulls in towards the player if there is a collision)
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
 	CameraBoom->SetupAttachment(RootComponent);
-	CameraBoom->TargetArmLength = 300.0f; // The camera follows at this distance behind the character	
+	CameraBoom->TargetArmLength = 200.0f; // The camera follows at this distance behind the character	
 	CameraBoom->bUsePawnControlRotation = true; // Rotate the arm based on the controller
 
 	// Create a follow camera
@@ -55,6 +55,9 @@ ADeathMatchCharacter::ADeathMatchCharacter()
 	WeaponAttachSocketName = "WeaponSocket";
 
 	HealthComp = CreateDefaultSubobject<UHealthComponent>(TEXT("HealthComp"));
+
+	ZoomedFOV = 65.0f;
+	ZoomInterpSpeed = 20.f;
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -89,11 +92,16 @@ void ADeathMatchCharacter::SetupPlayerInputComponent(class UInputComponent* Play
 
 	// VR headset functionality
 	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &ADeathMatchCharacter::OnResetVR);
+
+	PlayerInputComponent->BindAction("Zoom", EInputEvent::IE_Pressed, this, &ADeathMatchCharacter::BeginZoom);
+	PlayerInputComponent->BindAction("Zoom", EInputEvent::IE_Released, this, &ADeathMatchCharacter::EndZoom);
 }
 
 void ADeathMatchCharacter::BeginPlay()
 {
 	Super::BeginPlay();
+
+	DefaultFOV = FollowCamera->FieldOfView;
 
 	GetMovementComponent()->GetNavAgentPropertiesRef().bCanCrouch = true;
 
@@ -121,6 +129,35 @@ void ADeathMatchCharacter::StartFire()
 	{
 		CurrentWeapon->StartFire();
 	}
+}
+
+void ADeathMatchCharacter::Tick(float DeltaSeconds)
+{
+	float TargetFOV = bWantsToZoom ? ZoomedFOV : DefaultFOV;
+
+	float NewFOV = FMath::FInterpTo(FollowCamera->FieldOfView, TargetFOV, DeltaSeconds, ZoomInterpSpeed);
+
+	FollowCamera->SetFieldOfView(NewFOV);
+}
+
+FVector ADeathMatchCharacter::GetPawnViewLocation() const
+{
+	if (FollowCamera)
+	{
+		return FollowCamera->GetComponentLocation();
+	}
+
+	return Super::GetPawnViewLocation();
+}
+
+void ADeathMatchCharacter::BeginZoom()
+{
+	bWantsToZoom = true;
+}
+
+void ADeathMatchCharacter::EndZoom()
+{
+	bWantsToZoom = false;
 }
 
 void ADeathMatchCharacter::OnResetVR()

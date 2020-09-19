@@ -24,7 +24,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df50e52b-047a-41fd-a231-756e1318e8ca" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DeathMatch/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DeathMatch/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultGame.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultGame.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Mannequin/Animations/RetargetAnimations/UE4ASP_HeroTPP_AnimBlueprint.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Mannequin/Animations/RetargetAnimations/UE4ASP_HeroTPP_AnimBlueprint.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/SciFiWeapDark/Weapons/Darkness_AssaultRifle.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/SciFiWeapDark/Weapons/Darkness_AssaultRifle.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/SciFiWeapDark/Weapons/Darkness_AssaultRifle_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/SciFiWeapDark/Weapons/Darkness_AssaultRifle_Skeleton.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ThirdPersonCPP/Blueprints/ThirdPersonCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonCPP/Blueprints/ThirdPersonCharacter.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DeathMatch/Weapon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/Weapon.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,12 +49,12 @@
         <option value="$PROJECT_DIR$/Source/DeathMatch/Projectile.h" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/Weapon.h" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/Projectile.cpp" />
-        <option value="$PROJECT_DIR$/Source/DeathMatch/Weapon.cpp" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/HealthComponent.h" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/HealthComponent.cpp" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameMode.h" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.h" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.cpp" />
+        <option value="$PROJECT_DIR$/Source/DeathMatch/Weapon.cpp" />
       </list>
     </option>
   </component>
@@ -390,7 +399,9 @@
       <workItem from="1600342250750" duration="69000" />
       <workItem from="1600349185145" duration="14029000" />
       <workItem from="1600369061747" duration="1279000" />
-      <workItem from="1600425182193" duration="23721000" />
+      <workItem from="1600425182193" duration="24624000" />
+      <workItem from="1600515008766" duration="662000" />
+      <workItem from="1600517673187" duration="6084000" />
     </task>
     <servers />
   </component>

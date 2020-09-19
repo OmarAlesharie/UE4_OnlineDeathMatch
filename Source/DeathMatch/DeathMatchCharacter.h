@@ -29,9 +29,6 @@ class ADeathMatchCharacter : public ACharacter
 	
 public:
 	ADeathMatchCharacter();
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Conponents")
-	UHealthComponent* HealthComp;
 	
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
@@ -46,6 +43,23 @@ public:
 
 protected:
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Conponents")
+	UHealthComponent* HealthComp;
+	
+	bool bWantsToZoom;
+	
+	UPROPERTY(EditDefaultsOnly, Category="Player")
+	float ZoomedFOV;
+
+	UPROPERTY(EditDefaultsOnly, Category="Player", meta = (ClampMin = 0.1, ClampMax = 100))
+	float ZoomInterpSpeed;
+	
+	float DefaultFOV;
+
+	void BeginZoom();
+	
+	void EndZoom();
+	
 	/** Resets HMD orientation in VR. */
 	void OnResetVR();
 
@@ -105,9 +119,13 @@ protected:
     void StartFire();
 
 public:
+	virtual void Tick(float DeltaSeconds) override;
+	
 	/** Returns CameraBoom subobject **/
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
+
+	virtual FVector GetPawnViewLocation() const override;
 };
 

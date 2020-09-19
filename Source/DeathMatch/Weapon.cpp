@@ -3,6 +3,8 @@
 
 #include "Weapon.h"
 
+
+#include "DrawDebugHelpers.h"
 #include "Projectile.h"
 #include "UObject/ConstructorHelpers.h"
 
@@ -23,8 +25,8 @@ AWeapon::AWeapon()
 
 	SetReplicates(true);
 
-	NetUpdateFrequency = 66.0f;
-	MinNetUpdateFrequency = 33.0f;
+	//NetUpdateFrequency = 66.0f;
+	//MinNetUpdateFrequency = 33.0f;
 
 	//Initialize projectile class
 	ProjectileClass = AProjectile::StaticClass();
@@ -60,13 +62,40 @@ void AWeapon::StopFire()
 void AWeapon::HandleFire_Implementation()
 {
 	FVector MuzzleLocation = MeshComp->GetSocketLocation(MuzzleSocketName);
-	FRotator MuzzleRotation = MeshComp->GetSocketRotation(MuzzleSocketName);
+	
+	AActor* MyOwner = GetOwner();
+	if (MyOwner)
+	{
+		FVector EyeLocation;
+		FRotator EyeRotation;
+		MyOwner->GetActorEyesViewPoint(EyeLocation, EyeRotation);
 
-	FActorSpawnParameters spawnParameters;
-	spawnParameters.Instigator = this->GetInstigator();
-	spawnParameters.Owner = this->GetOwner();
+		FVector TraceEnd = EyeLocation + (EyeRotation.Vector() * 30000);
 
-	AProjectile* spawnedProjectile = GetWorld()->SpawnActor<AProjectile>(MuzzleLocation, MuzzleRotation, spawnParameters);
+		FVector TracerEndPoint = TraceEnd;
+
+		FCollisionQueryParams QueryParams;
+		QueryParams.AddIgnoredActor(MyOwner);
+		QueryParams.AddIgnoredActor(this);
+		QueryParams.bTraceComplex = true;
+
+		FHitResult Hit;
+		if (GetWorld()->LineTraceSingleByChannel(Hit, EyeLocation, TraceEnd, ECollisionChannel::ECC_GameTraceChannel1, QueryParams))
+		{
+			AActor* HitActor = Hit.GetActor();
+			TracerEndPoint = Hit.ImpactPoint;
+		}
+
+		FVector ShotDirection = (TracerEndPoint - MuzzleLocation).GetSafeNormal();
+
+		FActorSpawnParameters spawnParameters;
+		spawnParameters.Instigator = this->GetInstigator();
+		spawnParameters.Owner = this->GetOwner();
+
+		AProjectile* spawnedProjectile = GetWorld()->SpawnActor<AProjectile>(MuzzleLocation, ShotDirection.Rotation(), spawnParameters);
+	}
+	
+	
 }
 
 bool AWeapon::HandleFire_Validate()
