@@ -24,10 +24,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df50e52b-047a-41fd-a231-756e1318e8ca" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DeathMatch/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DeathMatch/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DeathMatch/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DeathMatch/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ThirdPersonCPP/Blueprints/ThirdPersonCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonCPP/Blueprints/ThirdPersonCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI/WBP_PlayerAimingUI.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/WBP_PlayerAimingUI.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DeathMatch/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DeathMatch/riderModule.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/ThirdPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/ThirdPersonExampleMap.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeathMatch.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/DeathMatch.uproject" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DeathMatch/DeathMatch.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/DeathMatch.Build.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +55,15 @@
         <option value="$PROJECT_DIR$/Source/DeathMatch/Projectile.cpp" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.h" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.cpp" />
+        <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatch.Build.cs" />
+        <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameInstance.h" />
+        <option value="$PROJECT_DIR$/Source/DeathMatch/MasterMenuWidget.h" />
+        <option value="$PROJECT_DIR$/Source/DeathMatch/MasterMenuWidget.cpp" />
+        <option value="$PROJECT_DIR$/Source/DeathMatch/MainMenuUserWidget.cpp" />
+        <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameInstance.cpp" />
+        <option value="$PROJECT_DIR$/Source/DeathMatch/ServerRow.cpp" />
+        <option value="$PROJECT_DIR$/Source/DeathMatch/ServerRow.h" />
+        <option value="$PROJECT_DIR$/Source/DeathMatch/MainMenuUserWidget.h" />
       </list>
     </option>
   </component>
@@ -400,7 +412,11 @@
       <workItem from="1600515008766" duration="662000" />
       <workItem from="1600517673187" duration="9203000" />
       <workItem from="1600536788377" duration="9460000" />
-      <workItem from="1600553254526" duration="2718000" />
+      <workItem from="1600553254526" duration="2865000" />
+      <workItem from="1600596118030" duration="715000" />
+      <workItem from="1600604111355" duration="2030000" />
+      <workItem from="1600607470084" duration="1761000" />
+      <workItem from="1600609804334" duration="8444000" />
     </task>
     <servers />
   </component>

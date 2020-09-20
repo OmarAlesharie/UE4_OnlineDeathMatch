@@ -31,12 +31,20 @@
           <e p="DeathMatch.h" t="Include" />
           <e p="DeathMatchCharacter.cpp" t="Include" />
           <e p="DeathMatchCharacter.h" t="Include" />
+          <e p="DeathMatchGameInstance.cpp" t="Include" />
+          <e p="DeathMatchGameInstance.h" t="Include" />
           <e p="DeathMatchGameMode.cpp" t="Include" />
           <e p="DeathMatchGameMode.h" t="Include" />
           <e p="HealthComponent.cpp" t="Include" />
           <e p="HealthComponent.h" t="Include" />
+          <e p="MainMenuUserWidget.cpp" t="Include" />
+          <e p="MainMenuUserWidget.h" t="Include" />
+          <e p="MasterMenuWidget.cpp" t="Include" />
+          <e p="MasterMenuWidget.h" t="Include" />
           <e p="Projectile.cpp" t="Include" />
           <e p="Projectile.h" t="Include" />
+          <e p="ServerRow.cpp" t="Include" />
+          <e p="ServerRow.h" t="Include" />
           <e p="Weapon.cpp" t="Include" />
           <e p="Weapon.h" t="Include" />
         </e>
