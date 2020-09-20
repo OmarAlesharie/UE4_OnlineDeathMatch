@@ -36,6 +36,9 @@ public:
 
 	void RefreshServerList();
 
+	UFUNCTION(BlueprintCallable)
+    void LoadMenuWidget();
+
 private:
 	IOnlineSessionPtr SessionInterface;
 	TSharedPtr<class FOnlineSessionSearch> SessionSearch;

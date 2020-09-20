@@ -88,7 +88,7 @@ void UDeathMatchGameInstance::LoadMainMenu()
     APlayerController* PlayerController = GetFirstLocalPlayerController();
     if (!ensure(PlayerController != nullptr)) return;
 
-    PlayerController->ClientTravel("/Game/MenuSystem/MainMenu", ETravelType::TRAVEL_Absolute);
+    PlayerController->ClientTravel("/Game/ThirdPersonCPP/Maps/MainMenu", ETravelType::TRAVEL_Absolute);
 }
 
 void UDeathMatchGameInstance::RefreshServerList()
@@ -102,6 +102,16 @@ void UDeathMatchGameInstance::RefreshServerList()
         UE_LOG(LogTemp, Warning, TEXT("Starting Find Session"));
         SessionInterface->FindSessions(0, SessionSearch.ToSharedRef());
     }
+}
+
+void UDeathMatchGameInstance::LoadMenuWidget()
+{
+    if (!ensure(MenuClass != nullptr)) return;
+
+    Menu = CreateWidget<UMainMenuUserWidget>(this, MenuClass);
+    if (!ensure(Menu != nullptr)) return;
+
+    Menu->Setup();
 }
 
 void UDeathMatchGameInstance::OnCreateSessionComplete(FName SessionName, bool Success)
@@ -120,7 +130,7 @@ void UDeathMatchGameInstance::OnCreateSessionComplete(FName SessionName, bool Su
     UWorld* World = GetWorld();
     if (!ensure(World != nullptr)) return;
 
-    World->ServerTravel("/Game/PuzzlePlatforms/Maps/Lobby?listen");
+    World->ServerTravel("/Game/ThirdPersonCPP/Maps/Lobby?listen");
 }
 
 void UDeathMatchGameInstance::OnDestroySessionComplete(FName SessionName, bool Success)

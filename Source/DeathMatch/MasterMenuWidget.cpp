@@ -6,7 +6,7 @@
 void UMasterMenuWidget::Setup()
 {
     this->AddToViewport();
-
+    
     UWorld* World = GetWorld();
     if (!ensure(World != nullptr)) return;
 
