@@ -2,6 +2,7 @@
 
 #include "DeathMatchGameMode.h"
 #include "DeathMatchCharacter.h"
+#include "DeathMatchGameStateBase.h"
 #include "UObject/ConstructorHelpers.h"
 
 ADeathMatchGameMode::ADeathMatchGameMode()
@@ -12,4 +13,6 @@ ADeathMatchGameMode::ADeathMatchGameMode()
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;
 	}
+
+	GameStateClass = ADeathMatchGameStateBase::StaticClass();
 }

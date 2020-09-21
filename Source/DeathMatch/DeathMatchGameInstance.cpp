@@ -5,6 +5,8 @@
 #include "OnlineSubsystem.h"
 #include "OnlineSessionSettings.h"
 #include "MainMenuUserWidget.h"
+#include "DeathMatchGameStateBase.h"
+#include "Kismet/GameplayStatics.h"
 
 const static FName SESSION_NAME = TEXT("GameSession");
 const static FName SERVER_NAME_SETTINGS_KEY = TEXT("ServerName");
@@ -134,6 +136,12 @@ void UDeathMatchGameInstance::OnCreateSessionComplete(FName SessionName, bool Su
 
     UWorld* World = GetWorld();
     if (!ensure(World != nullptr)) return;
+
+    ADeathMatchGameStateBase* GS = Cast<ADeathMatchGameStateBase>(UGameplayStatics::GetGameState(GetWorld()));
+    if (GS)
+    {
+        GS->SetGameplayState(EGameplayState::WAitingToStart);
+    }
 
     World->ServerTravel("/Game/ThirdPersonCPP/Maps/Lobby?listen");
 }

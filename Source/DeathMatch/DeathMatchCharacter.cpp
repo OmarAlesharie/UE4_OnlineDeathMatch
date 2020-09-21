@@ -12,6 +12,8 @@
 #include "Kismet/KismetMathLibrary.h"
 #include "Net/UnrealNetwork.h"
 #include "HealthComponent.h"
+#include "DeathMatchGameStateBase.h"
+#include "Kismet/GameplayStatics.h"
 
 //////////////////////////////////////////////////////////////////////////
 // ADeathMatchCharacter
@@ -58,6 +60,9 @@ ADeathMatchCharacter::ADeathMatchCharacter()
 
 	ZoomedFOV = 65.0f;
 	ZoomInterpSpeed = 20.f;
+
+	bDied = false;
+	bCanFire = false;
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -121,11 +126,33 @@ void ADeathMatchCharacter::BeginPlay()
 			CurrentWeapon->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale, WeaponAttachSocketName);
 		}
 	}
+
+	ADeathMatchGameStateBase* GS = Cast<ADeathMatchGameStateBase>(UGameplayStatics::GetGameState(GetWorld()));
+	if (GS)
+	{
+		EGameplayState GameplayState = GS->GetGameplayState();
+
+		switch (GameplayState) {
+			case EGameplayState::WAitingToStart:
+				bCanFire = false;
+				GEngine->AddOnScreenDebugMessage(-1,3,FColor::Red, TEXT("Can't Fire"));
+				break;
+			case EGameplayState::GameStarted:
+				bCanFire = true;
+				GEngine->AddOnScreenDebugMessage(-1,3,FColor::Green, TEXT("Can Fire"));
+				break;
+			case EGameplayState::GameEnds:
+				bCanFire = false;
+				GEngine->AddOnScreenDebugMessage(-1,3,FColor::Red, TEXT("Can't Fire"));
+				break;
+			default: ;
+		}
+	}
 }
 
 void ADeathMatchCharacter::StartFire()
 {
-	if (CurrentWeapon)
+	if (CurrentWeapon && bCanFire)
 	{
 		CurrentWeapon->StartFire();
 	}

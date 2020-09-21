@@ -112,6 +112,9 @@ protected:
 	// Pawn died previously
 	UPROPERTY(Replicated, BlueprintReadOnly, Category="Player")
 	bool bDied;
+
+	UPROPERTY()
+	bool bCanFire;
 	
 protected:
 	// APawn interface
@@ -121,6 +124,7 @@ protected:
 	virtual void BeginPlay() override;
 
     void StartFire();
+
 
 public:
 	virtual void Tick(float DeltaSeconds) override;
