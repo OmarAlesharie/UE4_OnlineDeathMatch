@@ -13,7 +13,7 @@ UDeathMatchGameInstance::UDeathMatchGameInstance(const FObjectInitializer& Objec
 {
     ConstructorHelpers::FClassFinder<UUserWidget> MenuBPClass(TEXT("/Game/UI/WBP_MainMenu"));
     if (!ensure(MenuBPClass.Class != nullptr)) return;
-
+    
     MenuClass = MenuBPClass.Class;
 }
 
@@ -180,6 +180,11 @@ void UDeathMatchGameInstance::OnJoinSessionComplete(FName SessionName, EOnJoinSe
     {
         UE_LOG(LogTemp, Warning, TEXT("Could not get connect string."));
         return;
+    }
+
+    if (Menu != nullptr)
+    {
+        Menu->Teardown();
     }
 
     UEngine* Engine = GetEngine();

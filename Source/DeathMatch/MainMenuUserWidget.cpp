@@ -3,19 +3,19 @@
 
 #include "MainMenuUserWidget.h"
 
+#include "ServerRow.h"
 #include "Components/Button.h"
 #include "Components/EditableTextBox.h"
 #include "Components/WidgetSwitcher.h"
 #include "DeathMatchGameInstance.h"
 #include "Kismet/GameplayStatics.h"
-#include "ServerRow.h"
 #include "Components/TextBlock.h"
 
 UMainMenuUserWidget::UMainMenuUserWidget(const FObjectInitializer& ObjectInitializer)
 {
-    ConstructorHelpers::FClassFinder<UUserWidget> ServerRowBPClass(TEXT("/Game/MenuSystem/WBP_ServerRow"));
+    ConstructorHelpers::FClassFinder<UUserWidget> ServerRowBPClass(TEXT("/Game/UI/WBP_ServerRow"));
     if (!ensure(ServerRowBPClass.Class != nullptr)) return;
-
+    
     ServerRowClass = ServerRowBPClass.Class;
 }
 

@@ -33,6 +33,7 @@ void UMasterMenuWidget::Teardown()
     if (!ensure(PlayerController != nullptr)) return;
 
     FInputModeGameOnly InputModeData;
+    
     PlayerController->SetInputMode(InputModeData);
 
     PlayerController->bShowMouseCursor = false;
