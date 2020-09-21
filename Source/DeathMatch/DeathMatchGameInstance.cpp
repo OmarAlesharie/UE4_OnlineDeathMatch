@@ -122,6 +122,11 @@ void UDeathMatchGameInstance::OnCreateSessionComplete(FName SessionName, bool Su
         return;
     }
 
+    if (Menu != nullptr)
+    {
+        Menu->Teardown();
+    }
+
     UEngine* Engine = GetEngine();
     if (!ensure(Engine != nullptr)) return;
 
@@ -180,11 +185,6 @@ void UDeathMatchGameInstance::OnJoinSessionComplete(FName SessionName, EOnJoinSe
     {
         UE_LOG(LogTemp, Warning, TEXT("Could not get connect string."));
         return;
-    }
-
-    if (Menu != nullptr)
-    {
-        Menu->Teardown();
     }
 
     UEngine* Engine = GetEngine();
