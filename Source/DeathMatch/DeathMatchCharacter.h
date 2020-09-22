@@ -133,7 +133,7 @@ public:
 
 	virtual FVector GetPawnViewLocation() const override;
 
-	UPROPERTY(VisibleAnywhere, Replicated)
+	UPROPERTY(VisibleAnywhere,BlueprintReadOnly, Replicated)
 	bool bCanFire;
 };
 

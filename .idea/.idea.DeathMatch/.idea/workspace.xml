@@ -24,18 +24,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df50e52b-047a-41fd-a231-756e1318e8ca" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DeathMatch/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DeathMatch/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DeathMatch/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DeathMatch/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/GameModes/LobbyGameMode.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ThirdPersonCPP/Blueprints/DeathMatchGameMode_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonCPP/Blueprints/DeathMatchGameMode_BP.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/Lobby.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/Lobby.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/ThirdPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/ThirdPersonExampleMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/UI/WBP_MainMenu.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/WBP_MainMenu.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/UI/WBP_ServerRow.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/WBP_ServerRow.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameInstance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameInstance.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameInstance.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameInstance.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameMode.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameMode.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameMode.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,10 +63,10 @@
         <option value="$PROJECT_DIR$/Source/DeathMatch/LobbyGameModeBase.cpp" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameMode.h" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameInstance.cpp" />
-        <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.h" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.cpp" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/LobbyGameModeBase.h" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameMode.cpp" />
+        <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.h" />
       </list>
     </option>
   </component>
@@ -437,7 +430,9 @@
       <workItem from="1600782846413" duration="2438000" />
       <workItem from="1600785869282" duration="2266000" />
       <workItem from="1600790255660" duration="2428000" />
-      <workItem from="1600794913612" duration="6681000" />
+      <workItem from="1600794913612" duration="6953000" />
+      <workItem from="1600804351025" duration="1433000" />
+      <workItem from="1600810174221" duration="273000" />
     </task>
     <servers />
   </component>
