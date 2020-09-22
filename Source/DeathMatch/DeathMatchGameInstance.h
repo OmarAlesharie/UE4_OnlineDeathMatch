@@ -39,6 +39,8 @@ public:
 	UFUNCTION(BlueprintCallable)
     void LoadMenuWidget();
 
+	int32 GetMaxNumOfPlayrs();
+
 private:
 	IOnlineSessionPtr SessionInterface;
 	TSharedPtr<class FOnlineSessionSearch> SessionSearch;
@@ -56,5 +58,6 @@ private:
 	void CreateSession();
 
 	void OnNetworkFailure(UWorld* world, UNetDriver* NetDriver, ENetworkFailure::Type FailureType, const FString& ErrorString);
-	
+
+	int32 MaxNumOfPlayers;
 };

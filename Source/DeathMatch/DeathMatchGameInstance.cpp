@@ -37,6 +37,8 @@ void UDeathMatchGameInstance::Init()
             SessionInterface->OnJoinSessionCompleteDelegates.AddUObject(
                 this, &UDeathMatchGameInstance::OnJoinSessionComplete);
         }
+
+        MaxNumOfPlayers = 3;
     }
     else
     {
@@ -114,6 +116,11 @@ void UDeathMatchGameInstance::LoadMenuWidget()
     if (!ensure(Menu != nullptr)) return;
 
     Menu->Setup();
+}
+
+int32 UDeathMatchGameInstance::GetMaxNumOfPlayrs()
+{
+    return MaxNumOfPlayers;
 }
 
 void UDeathMatchGameInstance::OnCreateSessionComplete(FName SessionName, bool Success)
@@ -219,7 +226,7 @@ void UDeathMatchGameInstance::CreateSession()
         {
             SessionSettings.bIsLANMatch = false;
         }
-        SessionSettings.NumPublicConnections = 3;
+        SessionSettings.NumPublicConnections = MaxNumOfPlayers;
         SessionSettings.bShouldAdvertise = true;
         SessionSettings.bUsesPresence = true;
         SessionSettings.Set(SERVER_NAME_SETTINGS_KEY, DesiredServerName,

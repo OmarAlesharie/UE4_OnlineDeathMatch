@@ -13,12 +13,17 @@ class ADeathMatchGameMode : public AGameModeBase
 {
 	GENERATED_BODY()
 
+	void SetFireOn();
+
 public:
 	ADeathMatchGameMode();
 
 	UPROPERTY(BlueprintAssignable, Category = "GameMode")
 	FOnActorKilled OnActorKilled;
+
+	virtual void PreLogin(const FString& Options, const FString& Address, const FUniqueNetIdRepl& UniqueId, FString& ErrorMessage) override;
+	virtual void PostLogin(APlayerController* NewPlayer) override;
+	virtual void Logout(AController* Exiting) override;
+
+	virtual void BeginPlay() override;
 };
-
-
-

@@ -12,7 +12,6 @@
 #include "Kismet/KismetMathLibrary.h"
 #include "Net/UnrealNetwork.h"
 #include "HealthComponent.h"
-#include "DeathMatchGameStateBase.h"
 #include "Kismet/GameplayStatics.h"
 
 //////////////////////////////////////////////////////////////////////////
@@ -62,6 +61,7 @@ ADeathMatchCharacter::ADeathMatchCharacter()
 	ZoomInterpSpeed = 20.f;
 
 	bDied = false;
+	
 	bCanFire = false;
 }
 
@@ -124,28 +124,6 @@ void ADeathMatchCharacter::BeginPlay()
 		{
 			CurrentWeapon->SetOwner(this);
 			CurrentWeapon->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale, WeaponAttachSocketName);
-		}
-	}
-
-	ADeathMatchGameStateBase* GS = Cast<ADeathMatchGameStateBase>(UGameplayStatics::GetGameState(GetWorld()));
-	if (GS)
-	{
-		EGameplayState GameplayState = GS->GetGameplayState();
-
-		switch (GameplayState) {
-			case EGameplayState::WAitingToStart:
-				bCanFire = false;
-				GEngine->AddOnScreenDebugMessage(-1,3,FColor::Red, TEXT("Can't Fire"));
-				break;
-			case EGameplayState::GameStarted:
-				bCanFire = true;
-				GEngine->AddOnScreenDebugMessage(-1,3,FColor::Green, TEXT("Can Fire"));
-				break;
-			case EGameplayState::GameEnds:
-				bCanFire = false;
-				GEngine->AddOnScreenDebugMessage(-1,3,FColor::Red, TEXT("Can't Fire"));
-				break;
-			default: ;
 		}
 	}
 }
@@ -298,4 +276,5 @@ void ADeathMatchCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>&
 	DOREPLIFETIME(ADeathMatchCharacter, CurrentWeapon);
 	DOREPLIFETIME(ADeathMatchCharacter, OffsetAxis);
 	DOREPLIFETIME(ADeathMatchCharacter, bDied);
+	DOREPLIFETIME(ADeathMatchCharacter, bCanFire);
 }

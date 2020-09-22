@@ -113,9 +113,6 @@ protected:
 	UPROPERTY(Replicated, BlueprintReadOnly, Category="Player")
 	bool bDied;
 
-	UPROPERTY()
-	bool bCanFire;
-	
 protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
@@ -135,5 +132,8 @@ public:
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
 
 	virtual FVector GetPawnViewLocation() const override;
+
+	UPROPERTY(VisibleAnywhere, Replicated)
+	bool bCanFire;
 };
 

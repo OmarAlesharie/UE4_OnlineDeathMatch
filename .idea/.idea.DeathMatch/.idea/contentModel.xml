@@ -39,6 +39,8 @@
           <e p="DeathMatchGameStateBase.h" t="Include" />
           <e p="HealthComponent.cpp" t="Include" />
           <e p="HealthComponent.h" t="Include" />
+          <e p="LobbyGameModeBase.cpp" t="Include" />
+          <e p="LobbyGameModeBase.h" t="Include" />
           <e p="MainMenuUserWidget.cpp" t="Include" />
           <e p="MainMenuUserWidget.h" t="Include" />
           <e p="MasterMenuWidget.cpp" t="Include" />

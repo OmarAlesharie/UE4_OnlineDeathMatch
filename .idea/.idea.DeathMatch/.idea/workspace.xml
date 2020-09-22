@@ -26,12 +26,16 @@
     <list default="true" id="df50e52b-047a-41fd-a231-756e1318e8ca" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DeathMatch/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DeathMatch/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DeathMatch/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DeathMatch/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/GameModes/LobbyGameMode.uasset" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/ThirdPersonCPP/Blueprints/DeathMatchGameMode_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonCPP/Blueprints/DeathMatchGameMode_BP.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/Lobby.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/Lobby.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/ThirdPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/ThirdPersonExampleMap.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameInstance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameInstance.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameInstance.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameInstance.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameMode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameMode.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameMode.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +53,6 @@
       <list>
         <option value="$PROJECT_DIR$/Source/DeathMatch/HealthComponent.h" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/HealthComponent.cpp" />
-        <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameMode.h" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/Weapon.h" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/Weapon.cpp" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/Projectile.h" />
@@ -58,16 +61,19 @@
         <option value="$PROJECT_DIR$/Source/DeathMatch/MasterMenuWidget.h" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/ServerRow.h" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/MainMenuUserWidget.h" />
-        <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameInstance.h" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/ServerRow.cpp" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/MainMenuUserWidget.cpp" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/MasterMenuWidget.cpp" />
-        <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameMode.cpp" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameStateBase.cpp" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameStateBase.h" />
+        <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameInstance.h" />
+        <option value="$PROJECT_DIR$/Source/DeathMatch/LobbyGameModeBase.cpp" />
+        <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameMode.h" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameInstance.cpp" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.h" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.cpp" />
+        <option value="$PROJECT_DIR$/Source/DeathMatch/LobbyGameModeBase.h" />
+        <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameMode.cpp" />
       </list>
     </option>
   </component>
@@ -424,7 +430,14 @@
       <workItem from="1600636715092" duration="8041000" />
       <workItem from="1600691360873" duration="3751000" />
       <workItem from="1600697577694" duration="2408000" />
-      <workItem from="1600723088347" duration="4932000" />
+      <workItem from="1600723088347" duration="5278000" />
+      <workItem from="1600764931149" duration="1528000" />
+      <workItem from="1600767462026" duration="2581000" />
+      <workItem from="1600771491253" duration="8774000" />
+      <workItem from="1600782846413" duration="2438000" />
+      <workItem from="1600785869282" duration="2266000" />
+      <workItem from="1600790255660" duration="2428000" />
+      <workItem from="1600794913612" duration="6681000" />
     </task>
     <servers />
   </component>
