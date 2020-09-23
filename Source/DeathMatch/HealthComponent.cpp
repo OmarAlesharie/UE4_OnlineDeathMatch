@@ -3,6 +3,7 @@
 
 #include "HealthComponent.h"
 #include "DeathMatchGameMode.h"
+#include "DeathMatchPlayerState.h"
 #include "Net/UnrealNetwork.h"
 
 // Sets default values for this component's properties

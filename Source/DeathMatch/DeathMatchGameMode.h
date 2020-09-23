@@ -14,6 +14,8 @@ class ADeathMatchGameMode : public AGameModeBase
 	GENERATED_BODY()
 
 	void SetFireOn();
+protected:
+	void RestartDeadPlayers();
 
 public:
 	ADeathMatchGameMode();
@@ -26,4 +28,5 @@ public:
 	virtual void Logout(AController* Exiting) override;
 
 	virtual void BeginPlay() override;
+	virtual void Tick(float DeltaSeconds) override;
 };

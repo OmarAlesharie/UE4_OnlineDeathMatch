@@ -24,11 +24,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df50e52b-047a-41fd-a231-756e1318e8ca" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DeathMatch/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DeathMatch/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DeathMatch/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DeathMatch/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ThirdPersonCPP/Blueprints/DeathMatchGameMode_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonCPP/Blueprints/DeathMatchGameMode_BP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ThirdPersonCPP/Blueprints/ThirdPersonCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonCPP/Blueprints/ThirdPersonCharacter.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/ThirdPersonExampleMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonCPP/Maps/ThirdPersonExampleMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI/WBP_MainMenu.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/WBP_MainMenu.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI/WBP_ServerRow.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/WBP_ServerRow.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/UI/WBP_PlayerAimingUI.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/WBP_PlayerAimingUI.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameMode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameMode.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameMode.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/DeathMatch/HealthComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/DeathMatch/HealthComponent.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +50,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Source/DeathMatch/HealthComponent.h" />
-        <option value="$PROJECT_DIR$/Source/DeathMatch/HealthComponent.cpp" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/Weapon.h" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/Weapon.cpp" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/Projectile.h" />
@@ -61,12 +65,15 @@
         <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameStateBase.h" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameInstance.h" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/LobbyGameModeBase.cpp" />
-        <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameMode.h" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameInstance.cpp" />
-        <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.cpp" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/LobbyGameModeBase.h" />
-        <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameMode.cpp" />
         <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.h" />
+        <option value="$PROJECT_DIR$/Source/DeathMatch/HealthComponent.cpp" />
+        <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchPlayerState.cpp" />
+        <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchPlayerState.h" />
+        <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameMode.h" />
+        <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchGameMode.cpp" />
+        <option value="$PROJECT_DIR$/Source/DeathMatch/DeathMatchCharacter.cpp" />
       </list>
     </option>
   </component>
@@ -432,7 +439,11 @@
       <workItem from="1600790255660" duration="2428000" />
       <workItem from="1600794913612" duration="6953000" />
       <workItem from="1600804351025" duration="1433000" />
-      <workItem from="1600810174221" duration="273000" />
+      <workItem from="1600810174221" duration="664000" />
+      <workItem from="1600855115603" duration="3607000" />
+      <workItem from="1600862256057" duration="2587000" />
+      <workItem from="1600866006224" duration="11579000" />
+      <workItem from="1600879214251" duration="3361000" />
     </task>
     <servers />
   </component>
@@ -455,5 +466,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="344" y="29" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1600883630600">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="344" y="29" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.738@0.0.1366.738" timestamp="1600883630600" />
   </component>
 </project>

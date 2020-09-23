@@ -1,6 +1,8 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "DeathMatchCharacter.h"
+
+#include "DeathMatchPlayerState.h"
 #include "HeadMountedDisplayFunctionLibrary.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -130,7 +132,7 @@ void ADeathMatchCharacter::BeginPlay()
 
 void ADeathMatchCharacter::StartFire()
 {
-	if (CurrentWeapon && bCanFire)
+	if (CurrentWeapon && bCanFire && !bDied)
 	{
 		CurrentWeapon->StartFire();
 	}
@@ -157,12 +159,20 @@ FVector ADeathMatchCharacter::GetPawnViewLocation() const
 
 void ADeathMatchCharacter::BeginZoom()
 {
+	if (bDied)
+	{
+		return;
+	}
 	bWantsToZoom = true;
 	ZoomStart();
 }
 
 void ADeathMatchCharacter::EndZoom()
 {
+	if (bDied)
+	{
+		return;
+	}
 	bWantsToZoom = false;
 	ZoomEnd();
 }
@@ -212,19 +222,27 @@ bool ADeathMatchCharacter::ServerSetOffsetAxis_Validate()
 
 void ADeathMatchCharacter::TurnAtRate(float Rate)
 {
+	if (bDied)
+	{
+		return;
+	}
 	// calculate delta for this frame from the rate information
 	AddControllerYawInput(Rate * BaseTurnRate * GetWorld()->GetDeltaSeconds());
 }
 
 void ADeathMatchCharacter::LookUpAtRate(float Rate)
 {
+	if (bDied)
+	{
+		return;
+	}
 	// calculate delta for this frame from the rate information
 	AddControllerPitchInput(Rate * BaseLookUpRate * GetWorld()->GetDeltaSeconds());
 }
 
 void ADeathMatchCharacter::MoveForward(float Value)
 {
-	if ((Controller != NULL) && (Value != 0.0f))
+	if ((Controller != NULL) && (Value != 0.0f) && !bDied)
 	{
 		// find out which way is forward
 		const FRotator Rotation = Controller->GetControlRotation();
@@ -238,7 +256,7 @@ void ADeathMatchCharacter::MoveForward(float Value)
 
 void ADeathMatchCharacter::MoveRight(float Value)
 {
-	if ( (Controller != NULL) && (Value != 0.0f) )
+	if ( (Controller != NULL) && (Value != 0.0f) && !bDied)
 	{
 		// find out which way is right
 		const FRotator Rotation = Controller->GetControlRotation();
@@ -258,9 +276,17 @@ void ADeathMatchCharacter::OnHealthChanged(UHealthComponent* InHealthComp, float
 	{
 		// Die!
 		bDied = true;
+
+		ADeathMatchPlayerState* PS = Cast<ADeathMatchPlayerState>(GetPlayerState());
+		PS->RemoveOneLife();
 		
 		GetMovementComponent()->StopMovementImmediately();
 		GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+		
+		if (PS->GetCurrentLives() == 0)
+		{
+			return;
+		}
 
 		DetachFromControllerPendingDestroy();
 		CurrentWeapon->SetLifeSpan(12);
